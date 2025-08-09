@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML 5 FORM AND CONTENT SHOWCASE</title>
+        <style>
+            :root {
+            --primary: #4a6fa5;
+            --secondary: #6b8cae;
+            --accent: #f5a623;
+            --light: #f8f9fa;
+            --warning: #ffc107;
+            }
+
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: auto;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            body {
+              background: linear-gradient(135deg, #c3cfe2 100%);
+              color: var(--dark);
+              line-height: 1.5;
+              padding: 20px;
+            }
+
+            .container {
+                max-width: 1300px;
+                margin: 0 auto;
+            }
+
+            header {
+                background: linear-gradient(to right, var(--primary), var(--secondary));
+                color: white;
+                padding: 3rem;
+                text-align: center;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 5pax rgba(red, green, blue, alpha);
+            }
+
+            header h1 {
+                font-size: 2.9rem;
+                margin-bottom: 0.6rem;
+                text-shadow: 2px 2px 4px rgba(red, green, blue, alpha);
+            }
+
+            header p {
+                font-size: 1.1rem;
+                max-width: 800px;
+                margin: 0 auto;
+                opacity: 0.9;
+            }
+
+            .content-section {
+                display: flex;
+                gap: 30px;
+            }
+
+            .card {
+                background: white;
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0, 0.8);
+                flex: 1;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .card h2 {
+                color: var(--primary);
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid var(--accent);
+            }   
+
+            /*Lists Styling*/
+            ul, ol {
+                padding-left: 25px;
+                margin: 15px 0;
+            }
+
+            li {
+                margin-bottom: 10px;
+                padding-left: 10px;
+            }
+
+            ul li {
+                list-style-type: circle;
+            }
+
+            ol li {
+                list-style-type: decimal;
+            }
+
+            /*Table Styling*/
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            }
+
+            th,td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            th {
+                background-color: var(--primary);
+                color: white;
+                font-weight: 500;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f8f9fa;
+            }
+
+            tr:hover {
+                background-color: #e9f7fe;
+            }
+
+            /*Form Styling*/
+            .form-container {
+                background: white;
+                border-radius: 10px;
+                padding: 30px;
+                box-shadow: 0 5px 20px rgb(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+            }
+
+            .form-container h2 {
+                color: var(--primary);
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label{
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+                color: var(--dark);
+            }
+
+            input, select, textarea {
+                width: 100%;
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                font-size: 15px;
+                transition: border-color 0.3s, box-shadow 0.3s;
+            }
+
+            input:focus, select:focus, textarea:focus {
+                border-color: var(--primary);
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(74, 11o, 160, 0.2);
+            }
+
+            input[type="checkbox"], input[type="radio"] {
+                width: auto;
+                margin-right: 8pax;
+            }
+
+            .checkbox-group, .radio-group {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            button {
+                background: linear-gradient(to right, var(--primary), var(--secondary));
+                color: white;
+                border: none;
+                padding: 14px 28px;
+                font-size: 18px;
+                font-weight: 500;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all0.3s ease;
+                display: block;
+                margin: 30px auto 0;
+                width: 50%;
+                box-shadow: 0 4px 10px  rgb(74, 110, 160, 0.4);
+            }
+
+            button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0  6px 25px rgba(74, 110, 165, 0.3);
+            }
+
+            /*Media Section*/
+            .media-section {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25pax;
+                margin-bottom: 30px;
+            }
+
+            .media-card {
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .media-card img {
+                    width: 100%;
+                    height: 230px;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                 .media-content {
+                    padding: 20px;
+                 }
+
+                 .media-content h3 {
+                    color: var(--primary);
+                    margin-bottom: 10px;
+                 }
+
+                 /*Validation*/
+                 input:invalid {
+                    border-color: var(--warning);
+                 }
+
+                 input:valid {
+                    border-color: var(--warning);
+                 }
+
+                 input:required:invalid {
+                    border-left: 4px solid var(--secondary);
+                 }
+
+                 input:required:valid{
+                    border-left: 4px solid var(--secondary);
+                 }
+
+                 .required:after {
+                    content: "*";
+                    color: var(--warning);
+                 }
+
+
+                 footer {
+                    text-align: center;
+                    padding: 20px;
+                    color: #666;
+                    font-size: 0.9rem;
+                    margin-top: 30px;
+                 }
+
+                @media(max-width: 768px) {
+                    .content-section {
+                        flex-direction: column;
+                    }
+
+                    button {
+                        width: 100%;
+                    }
+                }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>HTML5 Form and Content Showcase</h1>
+                <p>A comprehensive example containing forms, tables, lists, and media with the validation of HTML5</p>
+                <p>By George O. Mugah (Silvar)</p>
+                <p>Week-2 Assignment. Enhanced HTML5</p>
+            </header>
+
+            <div class="content-section">
+                <div class="card">
+                    <h2>Key HTML5 Features</h2>
+                    <ol>
+                        <li>Semantic elements for an effective structure</li>
+                        <li>Improved form controls and validation</li>
+                        <li>Native audio and video support</li>
+                        <li>SVG graphics and Canvas</li>
+                        <li>Improved accessibility elements</li>
+                        <li>Local storage capability</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>Benefits of HTML5</h2>
+                    <ol>
+                        <li>Enhanced semantics and structure</li>
+                        <li>Improved multimedia support</li>
+                        <li>Mobile-friendly design capabilities</li>
+                        <li>Minimized need for ecternal plugins</li>
+                        <li>Effective performance and speed</li>
+                        <li>Cross-browser compatibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h2>Registration Form</h2>
+                <form id="registrationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName" class="required">Full Name</label>
+                            <input type="text" id="fullName"
+                            name="fullName"
+                            pllaceholder="Enter full name"
+                            required
+                            autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="required">Email adress</label>
+                            <input type="email" id="email"
+                            name="email"
+
+                            placeholder="my.email@northend.com"
+                            required
+                            autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password"
+                            class="required">Password</label>
+                            <input type="password" id="password"
+                            name="password"
+                            placeholder="create a strong password"
+                            required
+                            minlength="8"
+                            pattern="@23Kenya"
+                            title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 characters">
+                        </div>
+
+                        <div class="form-group">
+                            <label foor="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone"
+                            name="phone"
+                            placeholder="(445) 555-7770"
+                            required
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            title="Format: 445-555-7770">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <input type="date" id="birthdate"
+                        name="birthdate"
+                                      min="19700-01-01" max="2022-12-31">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Website">Personal Website</label>
+                        <input type="url" id="website" name="website"
+                        placeholder="https://example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Country">Coutry</label>
+                        <select id="country" name="country" required>
+                            <option value=""disabled selected>Select youur country</option>
+                            <option value="USA">United States</option>
+                            <option value="ken">Kenya</option>
+                            <option value="ug">Uganda</option>
+                            <option value="tz">Tanzania</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="russia">Russia</option>
+                            <option value="autria">Austria</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Experience Level</label>
+                        <input type="range" id="experience" name="experience"
+                                      min="1" max="10" value="5">
+                        <output for="experience">5</output>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="favColor">Favorite Color</label>
+                        <input type="color" id="favColor" name="favColor" value="#4a6fa5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bio">Biography</label>
+                        <textarea id="bio" name="bio" rows="4" 
+                                  placeholder="Tell us about yourself"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Subscription Type</label>
+                        <div class="radio-group">
+                            <input type="radio" id="free" name="subscription" value="free" checked>
+                            <label for="free">Free</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="pro" name="subscription" value="pro">
+                            <label for="pro">Pro ($8.88/month)</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="enterprise" name="subscription" value="enterprise">
+                            <label for="enterprise">Enterprise ($32.22/month)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Interests</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="web" name="interests" value="web">
+                            <label for="web">Web Development</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="ai" name="interests" value="ai">
+                            <label for="ai">Artificial Intelligence</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="data" name="interests" value="data">
+                            <label for="data">Data Science</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profilePic">Profile Picture</label>
+                        <input type="file" id="profilePic" name="profilePic" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userID">User ID</label>
+                        <input type="text" id="userID" name="userID" 
+                               value="USR-2023-001" readonly>
+                    </div>
+                </div>
+                
+                <button type="submit">Register Now</button>
+            </form>
+        </div>
+        
+        <div class="card">
+            <h2>Technology Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>First Release</th>
+                        <th>Current Version</th>
+                        <th>Primary Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML5</td>
+                        <td>2014</td>
+                        <td>5.2</td>
+                        <td>Web structure</td>
+                    </tr>
+                    <tr>
+                        <td>CSS3</td>
+                        <td>1999</td>
+                        <td>3.0</td>
+                        <td>Web styling</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>1995</td>
+                        <td>ECMAScript 2022</td>
+                        <td>Web interactivity</td>
+                    </tr>
+                    <tr>
+                        <td>React</td>
+                        <td>2013</td>
+                        <td>18.2</td>
+                        <td>UI development</td>
+                    </tr>
+                    <tr>
+                        <td>Node.js</td>
+                        <td>2009</td>
+                        <td>18.12</td>
+                        <td>Server-side JS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="media-section">
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80" alt="Web Development">
+                <div class="media-content">
+                    <h3>Modern Web Development</h3>
+                    <p>HTML5 provides the foundation for building responsive, accessible, and feature-rich websites that work across all devices.</p>
+                </div>
+            </div>
+            
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Coding">
+                <div class="media-content">
+                    <h3>Interactive Experiences</h3>
+                    <p>Combine HTML5 with CSS3 and JavaScript to create engaging user experiences with animations, transitions, and interactivity.</p>
+                </div>
+            </div>
+            
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Technology">
+                <div class="media-content">
+                    <h3>Future of the Web</h3>
+                    <p>HTML5 continues to evolve with new features that enhance performance, security, and capabilities for modern web applications.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>HTML5 Form & Content Showcase | Demonstrating modern web development techniques</p>
+            <p>All form fields include proper validation attributes and HTML5 features</p>
+        </footer>
+    </div>
+    </body>
+</html>
